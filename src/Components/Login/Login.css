@@ -1,4 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #000000;
+}
+
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-color: #0A102D;
+  background-position: center;
+}
+
+.login-container {
     width: 573px;
     height: 427px;
     background:#fff;
@@ -37,6 +54,9 @@
     gap: 10px;
   }
 
+
+
+
   .container-body .input-container{
     border-radius: 32px;
     border: none;
@@ -68,12 +88,12 @@
     outline: none;
   }
   
-  .container .container-footer{
+  .login-container .container-footer{
     width: 90%;
   }
   
   
-  .container button {
+  .login-container button {
     width: 221px;
     height: 58px;
     background: #39A37C;
