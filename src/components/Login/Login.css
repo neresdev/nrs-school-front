@@ -26,13 +26,12 @@
     flex-direction: column; 
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 30px;
   }
 
   .container-header{
     display: flex;
     flex-direction: column;
-    padding-top: 30px;
     
   }
 
