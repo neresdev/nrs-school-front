@@ -1,3 +1,4 @@
+import Dashboard from '../Dashboard'
 import './index.css'
 export default function ClassRooms(){
     return (
@@ -5,6 +6,11 @@ export default function ClassRooms(){
         <div className='classroom-container'>
             <div className='new-room-container'>
                 <button className='new-room-button'>Cadastrar Sala</button>
+            </div>
+            <div className='dashboards-container'>
+                <Dashboard studentsQuantityLabelText="Número de alunos" studentsQuantity="123" />
+                <Dashboard studentsQuantityLabelText="Alunos em recuperação" studentsQuantity="456" />
+                <Dashboard studentsQuantityLabelText="Alunos alfabetizados" studentsQuantity="789" />
             </div>
         </div>
        </div> 

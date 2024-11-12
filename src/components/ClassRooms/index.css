@@ -1,8 +1,10 @@
+* {
+    font-family: "Nunito", sans-serif;
+}
 .classroom-container {
     width: 1500px;
     height: 750px;
     backdrop-filter: blur(10px);
-    /* border: 2px solid rgba(255, 255, 255, 0.2); */
     border-radius: 39px;
     display: flex;
     flex-direction: column; 
@@ -13,6 +15,7 @@
 
 .new-room-container{
     width: 100%;
+    padding-right: 50px;
     display: flex;
     justify-content: flex-end;
 }
@@ -31,3 +34,11 @@
     color: #fff;
     font-weight: 700;
 }
+
+.dashboards-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 200px;
+}
+
