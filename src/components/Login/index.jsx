@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 
-import "./Login.css";
+import "./index.css";
 import PersonIcon from '@mui/icons-material/Person';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import PropTypes from 'prop-types';

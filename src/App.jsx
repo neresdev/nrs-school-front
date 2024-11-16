@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import ClassRooms from "./components/ClassRooms"
-import Header from "./components/Header/Header"
+import Header from "./components/Header"
+import Login from "./components/Login"
 import useToken from "./hooks/useToken";
-import Login from "./components/Login/Login";
 
 function App() {
 
