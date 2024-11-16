@@ -45,7 +45,11 @@
 .search-classroom-container{
     width: 100%;
     height: 70px;
-    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .search-classrooms-input:focus{
@@ -54,15 +58,41 @@
 }
 
 .search-classrooms-input{
-    width: 83%;
+    width: 85%;
     border: none;
-    height: 25px;
-    font-size: inherit;
+    height: 100%;
+    font-size: 25px;
     color: #333;
+    padding: 30px;
     background-color: #FFF;
+    border-radius: 10px;
+    
 }
 
-.button-search-classrooms{
+.button-search-classrooms{  
+    width: 13%;
     display: flex;
-    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    border-left: 2px solid #39A37C;
+    border-right: 2px solid #39A37C;
+    border-radius: 10px;
+    background-color: none;
+    background-color: #0A102D;
+    cursor: pointer;
+}   
+
+.icon-search-classrooms{
+    fill: #39A37C !important;
+    font-size: 30px !important;
 }
+
+.label-search-classrooms{
+    font-weight: 800;
+    color: #39A37C;
+    font-size: 20px;
+    
+}
+

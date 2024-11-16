@@ -15,11 +15,10 @@ export default function ClassRooms(){
                 <Dashboard studentsQuantityLabelText="Alunos alfabetizados" studentsQuantity="789" />
             </div>
             <div className='search-classroom-container'>
-                <input type='text' className='search-classrooms-input' />
-                <button className='button-search-classrooms'> <SearchIcon className='search-classrooms'/> Buscar</button>
+                <input type='text' placeholder='Busque uma sala' className='search-classrooms-input' />
+                <button className='button-search-classrooms'> <SearchIcon  className='icon-search-classrooms'/> <p className='label-search-classrooms'>Buscar</p> </button>
             </div>
         </div>
        </div> 
     )
-
 }
