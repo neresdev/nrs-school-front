@@ -1,5 +1,7 @@
-import Dashboard from '../Dashboard'
-import './index.css'
+import Dashboard from '../Dashboard';
+import './index.css';
+import SearchIcon from '@mui/icons-material/Search';
+
 export default function ClassRooms(){
     return (
        <div className="container">
@@ -11,6 +13,10 @@ export default function ClassRooms(){
                 <Dashboard studentsQuantityLabelText="Número de alunos" studentsQuantity="123" />
                 <Dashboard studentsQuantityLabelText="Alunos em recuperação" studentsQuantity="456" />
                 <Dashboard studentsQuantityLabelText="Alunos alfabetizados" studentsQuantity="789" />
+            </div>
+            <div className='search-classroom-container'>
+                <input type='text' className='search-classrooms-input' />
+                <button className='button-search-classrooms'> <SearchIcon className='search-classrooms'/> Buscar</button>
             </div>
         </div>
        </div> 
