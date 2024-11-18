@@ -15,6 +15,7 @@ function App() {
   return (
       <BrowserRouter>
         <Routes>
+          <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="/classrooms" element={<ClassRooms />} />
           <Route path="/dashboard" element={<Header />} />
         </Routes>

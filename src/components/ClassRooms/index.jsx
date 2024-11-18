@@ -20,10 +20,10 @@ export default function ClassRooms(){
             </div>
             <table className='table-classsrooms' cellSpacing={"0"}>
                 <tr>
-                    <th className='table-classrooms-first-th'>Turma</th>
+                    <th>Turma</th>
                     <th>Professor(a)</th>
                     <th>Turno</th>
-                    <th className='table-classrooms-last-th'>Número</th>
+                    <th>Número</th>
                 </tr>
                 <tr>
                     <td>5°A</td>
