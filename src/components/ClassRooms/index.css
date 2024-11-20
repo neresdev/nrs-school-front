@@ -20,7 +20,6 @@ body {
 }
 
 .classroom-container{
-    width: 99vw;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -67,26 +66,6 @@ body {
     height: 200px;
 }
 
-/* smartphone */ 
-@media (max-width: 431px){ /* todo ->  WIP */
-    .classroom-body {
-        width: 90%;
-        height: 100%;
-    }
-
-    .new-room-button{
-        width: 100px;
-        height: 58px;
-        padding: none;
-        font-weight: 900;
-    }
-
-    .dashboards-container{
-        
-    }
-
-}
-
 .search-classroom-container{
     width: 100%;
     height: 70px;
@@ -113,6 +92,7 @@ body {
     
 }
 
+
 .button-search-classrooms{  
     width: 13%;
     display: flex;
@@ -128,10 +108,12 @@ body {
     cursor: pointer;
 }   
 
+
 .icon-search-classrooms{
     fill: var(--green-secondary) !important;
     font-size: 30px !important;
 }
+
 
 .label-search-classrooms{
     font-weight: 800;
@@ -184,4 +166,46 @@ body {
 
 
 
+/* smartphone */ 
+@media (max-width: 431px){
+    .classroom-body {
+        width: 90%;
+        height: 100%;
+    }
+
+    .new-room-button{
+        width: 100px;
+        height: 58px;
+        padding: none;
+    }
+
+    .dashboards-container{
+        height: 80px;
+    }
+
+    .search-classroom-container{
+        gap: 10px;
+        height: 50px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .search-classrooms-input{
+        font-size: 15px;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+    }
+
+    .icon-search-classrooms {
+        font-size: 20px !important;
+    }
+
+    .button-search-classrooms{
+        width: 100%;
+        height: 100%;
+        gap: 5px;    
+    }
+
+}
 
