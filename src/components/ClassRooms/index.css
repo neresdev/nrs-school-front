@@ -1,17 +1,33 @@
+:root{
+    --green-primary: #00875F;
+    --green-secondary: #39A37C;
+    --green-tertiary: #065F62;
+
+    --white-primary: #FFFFFF;
+
+    --blue-primary: #0A102D;
+
+    --black-primary: #000000;
+
+    --smartphone-height: 431px;
+}
+
 * {
     font-family: "Nunito", sans-serif;
 }
 body {
-    background-color: #0A102D;
+    background-color: var(--blue-primary);
 }
 
 .classroom-container{
+    width: 99vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 30px;
     background-size: cover;
-    background-color: #0A102D;
+    background-color: var(--blue-primary);
     background-position: center;
 }
 
@@ -27,23 +43,20 @@ body {
 
 .new-room-container{
     width: 100%;
-    padding-right: 50px;
     display: flex;
     justify-content: flex-end;
 }
 
 .new-room-button{
     width: 146px;
-    height: 50px;
     height: 58px;
-    background: #00875F;
+    background: var(--green-primary);
     border: none;
     outline: none;
     border-radius: 7px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
-    color: #fff;
+    color: var(--white-primary);
     font-weight: 700;
 }
 
@@ -52,6 +65,26 @@ body {
     display: flex;
     justify-content: space-between;
     height: 200px;
+}
+
+/* smartphone */ 
+@media (max-width: 431px){ /* todo ->  WIP */
+    .classroom-body {
+        width: 90%;
+        height: 100%;
+    }
+
+    .new-room-button{
+        width: 100px;
+        height: 58px;
+        padding: none;
+        font-weight: 900;
+    }
+
+    .dashboards-container{
+        
+    }
+
 }
 
 .search-classroom-container{
@@ -73,9 +106,9 @@ body {
     border: none;
     height: 100%;
     font-size: 25px;
-    color: #000000;
+    color: var(--black-primary);
     padding: 30px;
-    background-color: #FFF;
+    background-color: var(--white-primary);
     border-radius: 10px;
     
 }
@@ -87,22 +120,22 @@ body {
     justify-content: center;
     gap: 10px;
     border: none;
-    border-left: 2px solid #39A37C;
-    border-right: 2px solid #39A37C;
+    border-left: 2px solid var(--green-secondary);
+    border-right: 2px solid var(--green-secondary);
     border-radius: 10px;
     background-color: none;
-    background-color: #0A102D;
+    background-color: var(--blue-primary);
     cursor: pointer;
 }   
 
 .icon-search-classrooms{
-    fill: #39A37C !important;
+    fill: var(--green-secondary) !important;
     font-size: 30px !important;
 }
 
 .label-search-classrooms{
     font-weight: 800;
-    color: #39A37C;
+    color: var(--green-secondary);
     font-size: 20px;
 }
 
@@ -117,8 +150,8 @@ body {
 }
 
 .table-classsrooms tr th{
-    background-color: #065F62;
-    color: white;
+    background-color: var(--green-tertiary);
+    color: var(--white-primary);
     height: 69px;
     border-collapse: inherit;
 }
@@ -134,8 +167,8 @@ body {
 .table-classsrooms tr td{
     align-items: center;
     justify-content: center;
-    background-color: #FFF;
-    color: black;
+    background-color: var(--white-primary);
+    color: #000000;
     height: 69px;
     border-collapse: inherit;
     text-align: center;
