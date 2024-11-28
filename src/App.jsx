@@ -3,6 +3,7 @@ import ClassRooms from "./components/ClassRooms"
 import Header from "./components/Header"
 import Login from "./components/Login"
 import useToken from "./hooks/useToken";
+import NewRoom from "./components/NewRoom";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="/classrooms" element={<ClassRooms />} />
           <Route path="/dashboard" element={<Header />} />
+          <Route path="/new-room" element={<NewRoom />} />
         </Routes>
       </BrowserRouter>
   )
