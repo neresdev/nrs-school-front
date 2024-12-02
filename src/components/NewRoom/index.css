@@ -13,12 +13,52 @@
     height: 90%;
     padding-top: 5%;
     display: flex;
-    justify-content: center;
-    
+    flex-direction: column;
+    gap: 5%;
+    align-items: center;
 }
 
 
 .newroom-body h1 {
-    font-size: 4rem;
+    font-size: 4em;
+}
 
+.newroom-line-container {
+    width: 100%;
+    height: 100%;
+}
+
+.newrooom-line {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 3%;
+
+}
+
+.newroom-body .newroom-label {
+    font-size: 1.5em;
+    font-weight: 700;
+    width: 45%;
+    display: grid;
+    gap: 40%;
+}
+
+.newroom-body .newroom-label p {
+    padding-left: 10%;
+
+}
+
+.newroom-body .newroom-label input{
+    font-size: 50%;
+    padding-left: 2%;
+    border: 1px solid #c4bcbc;
+    border-radius: 10px;
+    height: 53px;
+    width: 100%;
+}
+
+.newroom-body .newroom-label input:focus{
+    border: 1px solid #c4bcbc;
+    outline: none;
 }
