@@ -1,8 +1,30 @@
+import { useEffect, useState } from 'react';
 import Dashboard from '../Dashboard';
 import './index.css';
 import SearchIcon from '@mui/icons-material/Search';
+import api from "../../services/api";
+import useToken from '../../hooks/useToken';
 
 export default function ClassRooms(){
+    const [classrooms, seClassrooms] = useState([]);
+    const {token} = useToken();
+
+    useEffect(() => {
+        api
+          .get("/classrooms", {
+            headers: {
+                'Authorization': `Bearer ${token}`
+                
+            }
+          })
+          .then((response) => {
+            seClassrooms(response.data);
+        })
+          .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+          });
+      }, [token]);
+
     return (
        <div className="classroom-container">
         <div className='classroom-body'>
@@ -19,38 +41,41 @@ export default function ClassRooms(){
                 <button className='button-search-classrooms'> <SearchIcon  className='icon-search-classrooms'/> <p className='label-search-classrooms'>Buscar</p> </button>
             </div>
             <table className='table-classsrooms' cellSpacing={"0"}>
-                <tr>
-                    <th>Turma</th>
-                    <th>Professor(a)</th>
-                    <th>Turno</th>
-                    <th>Número</th>
-                </tr>
-                <tr>
-                    <td>5°A</td>
-                    <td>Mônica Torres</td>
-                    <td>Tarde</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>4°B</td>
-                    <td>Paulo Garzón</td>
-                    <td>Manhã</td>
-                    <td>13</td>
-                </tr>
-                <tr>
-                    <td>3°A</td>
-                    <td>Luís Gustavo</td>
-                    <td>Noite</td>
-                    <td>17</td>
-                </tr>
-                <tr>
-                    <td>6°C</td>
-                    <td>Maria Silva</td>
-                    <td>Tarde</td>
-                    <td>19</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Turma</th>
+                        <th>Professor(a)</th>
+                        <th>Turno</th>
+                        <th>Número</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {classrooms.map(classrom => (
+                        <tr key={classrom.className}>
+                            <td>{classrom.className}</td>
+                            <td>{classrom.teacher}</td>
+                            <td>{extractShift(classrom.shift)}</td>
+                            <td>{classrom.classNumber}</td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
         </div>
        </div> 
     )
+}
+
+const extractShift = (shift) => {
+    switch (shift.toString()){
+        case '1':
+            return 'Manhã'
+        case '2':
+            return 'Tarde'
+        case '3':
+            return 'Noite'
+        default :
+            return 'Ainda não atribuído'
+    }
+       
+
 }
