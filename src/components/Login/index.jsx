@@ -5,33 +5,34 @@ import "./index.css";
 import PersonIcon from '@mui/icons-material/Person';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 
-async function loginUser(credentials) {
-  let defaultToken = {"token":`fake_hardcoded_token_${Math.floor(Math.random() * 10)}`};
-  
-  // let token = fetch('http://localhost:8080/login', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify(credentials)
-  // }).then(data => data.json());
-  return defaultToken;
+async function loginUser(credentials) {  
+  let token = fetch('http://localhost:8081/auth/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin':'*'
+    },
+    body: JSON.stringify(credentials)
+  }).then(data => data.json());
+  return token;
 }
 
 export default function Login({ setToken }) {
-
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   const handleSubmit = async e => {
     e.preventDefault();
     const token = await loginUser({
-      username,
+      email,
       password
     })
     setToken(token);
+    navigate('/classrooms ')
   }
   
   return (
@@ -48,7 +49,7 @@ export default function Login({ setToken }) {
               <input 
                 type="email"
                 className="input-field"
-                onChange={e => setUsername(e.target.value)}
+                onChange={e => setEmail(e.target.value)}
                 />
               </div>
               <div className='input-container'>
