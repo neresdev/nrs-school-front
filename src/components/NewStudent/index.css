@@ -1,0 +1,103 @@
+.newstudent-container {
+    width: 100vw;
+    background-color: #0A102D;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newstudent-body {
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    padding-top: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    align-items: center;
+    border-radius: 50px;
+}
+
+
+.newstudent-body h1 {
+    font-size: 4em;
+}
+
+.newstudent-line-container {
+    width: 100%;
+    height: 50%;
+    display: grid;
+}
+
+.newroom-line {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    justify-content: center;
+    gap: 3%;
+
+}
+
+.newstudent-body .newstudent-label-name {
+    font-size: 1.5em;
+    font-weight: 700;
+    width: 93%;
+    display: grid;
+    gap: 40%;
+}
+.newstudent-body .newstudent-label {
+    font-size: 1.5em;
+    font-weight: 700;
+    width: 45%;
+    display: grid;
+    gap: 40%;
+}
+
+.newstudent-body .newstudent-label input{
+    font-size: 50%;
+    padding-left: 2%;
+    border: 1px solid #c4bcbc;
+    border-radius: 10px;
+    height: 53px;
+    width: 100%;
+}
+
+.newstudent-body .newstudent-label-name input{
+    font-size: 50%;
+    padding-left: 2%;
+    border: 1px solid #c4bcbc;
+    border-radius: 10px;
+    height: 53px;
+    width: 100%;
+}
+
+.newstudent-body .newstudent-label input:focus{
+    border: 1px solid #c4bcbc;
+    outline: none;
+}
+
+.newstudent-body .newstudent-label-name input:focus{
+    border: 1px solid #c4bcbc;
+    outline: none;
+}
+
+.register-room-container {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-room-button{
+    width: 146px;
+    height: 58px;
+    background: var(--green-primary);
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--white-primary);
+    font-weight: 700;
+}
