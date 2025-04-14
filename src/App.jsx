@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import Login from "./components/Login"
 import useToken from "./hooks/useToken";
 import NewRoom from "./components/NewRoom";
+import NewStudent from "./components/NewStudent";
 
 function App() {
   const {token, setToken} = useToken();
@@ -17,7 +18,8 @@ function App() {
         <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/classrooms" element={<ClassRooms />} />
         <Route path="/dashboard" element={<Header />} />
-        <Route path="/new-room" element={<NewRoom />} />
+        <Route path="/new-classroom" element={<NewRoom />} />
+        <Route path="/new-student" element={<NewStudent />} />
       </Routes>
   )
 }
