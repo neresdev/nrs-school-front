@@ -51,8 +51,8 @@ export default function ClassRooms(){
                 </thead>
                 <tbody>
                     {classrooms.map(classrom => (
-                        <tr key={classrom.className}>
-                            <td>{classrom.className}</td>
+                        <tr key={classrom.classroomName}>
+                            <td>{classrom.classroomName}</td>
                             <td>{classrom.teacher}</td>
                             <td>{extractShift(classrom.shift)}</td>
                             <td>{classrom.classNumber}</td>
