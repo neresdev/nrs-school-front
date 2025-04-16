@@ -20,10 +20,6 @@ async function createStudent(data, token){
             'Authorization': `Bearer ${token}`
         },
     })
-    .then(response => {
-        console.log('response create student');
-        console.log(response);
-    })
 }
 
 export default function NewStudent(){
@@ -41,10 +37,7 @@ export default function NewStudent(){
             classroomName,
             registration
         }
-        console.log('studentData')
-        console.log(JSON.stringify(studentData))
-        const response = await createStudent(studentData, token)
-        console.log(response)
+        await createStudent(studentData, token)
     }
 
     return (
@@ -59,8 +52,8 @@ export default function NewStudent(){
                         <label className='newstudent-label'> <p>Email(a)</p> <input onChange={e => setStudentEmail(e.target.value)}/> </label>                    
                         <label className='newstudent-label'> <p> Classe </p> <input onChange={e => setClassroomName(e.target.value)} /> </label>    
                     </div>
-                    <div className='register-room-container'>
-                        <button className='register-room-button' onClick={handleCreateStudent}>Cadastrar Sala</button>
+                    <div className='register-student-container'>
+                        <button className='register-student-button' onClick={handleCreateStudent}>Cadastrar Sala</button>
                     </div>
                 </div>
                 
