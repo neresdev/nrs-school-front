@@ -82,14 +82,14 @@
     outline: none;
 }
 
-.register-room-container {
+.register-student-container {
     width: 100%;
     display: grid;
     justify-content: center;
     align-items: center;
 }
 
-.register-room-button{
+.register-student-button{
     width: 146px;
     height: 58px;
     background: var(--green-primary);
