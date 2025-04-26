@@ -46,7 +46,19 @@
     font-weight: 700;
     width: 50%;
     display: grid;
-    gap: 40%;
+    gap: 10%;
+    height: 100%;
+    align-items: flex-end;
+}
+
+.newroom-body .register-classroom-label {
+    font-size: 1.5em;
+    font-weight: 700;
+    width: 50%;
+    display: grid;
+    gap: 10%;
+    height: 100%;
+    align-items: flex-end;
 }
 
 
@@ -68,8 +80,14 @@
     padding-top: 5%;
 }
 
+.newroom-body .register-classroom-label button{
+    padding-left: 2%;
+    border-radius: 10px;
+    height: 53px;
+    width: 100%;
+}
+
 .register-room-button{
-    margin-top: 6.4%;
     width: 50%;
     height: 55%;
     background: var(--green-primary);
