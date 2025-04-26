@@ -4,10 +4,16 @@ import './index.css';
 import SearchIcon from '@mui/icons-material/Search';
 import api from "../../services/api";
 import useToken from '../../hooks/useToken';
+import { useNavigate } from 'react-router-dom';
 
 export default function ClassRooms(){
-    const [classrooms, seClassrooms] = useState([]);
+    const navigate = useNavigate();
+    const [classrooms, setClassrooms] = useState([]);
     const {token} = useToken();
+
+    const handleRedirectToNewClassroom = () => {
+        navigate('/new-classroom');
+    }
 
     useEffect(() => {
         api
@@ -18,7 +24,7 @@ export default function ClassRooms(){
             }
           })
           .then((response) => {
-            seClassrooms(response.data);
+            setClassrooms(response.data);
         })
           .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
@@ -29,7 +35,7 @@ export default function ClassRooms(){
        <div className="classroom-container">
         <div className='classroom-body'>
             <div className='new-room-container'>
-                <button className='new-room-button'>Cadastrar Sala</button>
+                <button className='new-room-button' onClick={handleRedirectToNewClassroom}>Cadastrar Sala</button>
             </div>
             <div className='dashboards-container'>
                 <Dashboard studentsQuantityLabelText="Número de alunos" studentsQuantity="123" />
