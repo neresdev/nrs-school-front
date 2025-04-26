@@ -21,9 +21,9 @@ async function loginUser(credentials) {
 }
 
 export default function Login({ setToken }) {
-  const navigate = useNavigate()
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -32,7 +32,7 @@ export default function Login({ setToken }) {
       password
     })
     setToken(token);
-    navigate('/classrooms ')
+    navigate('/classrooms ');
   }
   
   return (
