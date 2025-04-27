@@ -53,10 +53,11 @@ export default function NewRoom(){
                     </div>
                     <div className='newrooom-line'>
                         <label className='newroom-label'> <p>Capacidade da sala</p> <input onChange={e => setCapacity(e.target.value)}/> </label>    
-                        <button className='register-room-button' onClick={handleCreateClassroom}>Cadastrar Sala</button> 
+                        <div className='register-classroom-label'> 
+                            <button className='register-room-button' onClick={handleCreateClassroom}>Cadastrar Sala</button>
+                        </div>
                     </div>
                     </div>
-
                 </div>
                 
                     
