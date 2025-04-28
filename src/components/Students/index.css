@@ -1,0 +1,286 @@
+:root{
+    --green-primary: #00875F;
+    --green-secondary: #39A37C;
+    --green-tertiary: #065F62;
+
+    --white-primary: #FFFFFF;
+
+    --blue-primary: #0A102D;
+
+    --black-primary: #000000;
+
+    --smartphone-height: 431px;
+}
+
+* {
+    font-family: "Nunito", sans-serif;
+}
+body {
+    background-color: var(--blue-primary);
+}
+
+.students-container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+    background-size: cover;
+    background-color: var(--blue-primary);
+    background-position: center;
+}
+
+.students-body {
+    width: 1450px;
+    height: 750px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: start;
+    align-items: center;
+    gap: 50px;
+}
+
+.new-room-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.new-room-button{
+    width: 146px;
+    height: 58px;
+    background: var(--green-primary);
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--white-primary);
+    font-weight: 700;
+}
+
+.dashboards-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 200px;
+}
+
+.search-students-container{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.search-students-input:focus{
+    border: none;
+    outline: none;
+}
+
+.search-students-input{
+    width: 85%;
+    border: none;
+    height: 100%;
+    font-size: 25px;
+    color: var(--black-primary);
+    padding: 30px;
+    background-color: var(--white-primary);
+    border-radius: 10px;
+    
+}
+
+
+.button-search-students{  
+    width: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    border-left: 2px solid var(--green-secondary);
+    border-right: 2px solid var(--green-secondary);
+    border-radius: 10px;
+    background-color: none;
+    background-color: var(--blue-primary);
+    cursor: pointer;
+}   
+
+
+.icon-search-students{
+    fill: var(--green-secondary) !important;
+    font-size: 30px !important;
+}
+
+
+.label-search-students{
+    font-weight: 800;
+    color: var(--green-secondary);
+    font-size: 20px;
+}
+
+.table-classsrooms{
+    width: 93.5%;
+    border-spacing: 0px 10px;
+}
+
+
+.table-classsrooms tr{
+    overflow: hidden;
+}
+
+.table-classsrooms tr th{
+    background-color: var(--green-tertiary);
+    color: var(--white-primary);
+    height: 69px;
+    border-collapse: inherit;
+}
+
+.table-classsrooms tr th:first-child{
+    border-radius: 10px 0 0 10px;
+}
+
+.table-classsrooms tr th:last-child{
+    border-radius: 0 10px 10px 0;
+}
+
+.table-classsrooms tr td{
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-primary);
+    color: #000000;
+    height: 69px;
+    border-collapse: inherit;
+    text-align: center;
+}
+
+.table-classsrooms tr td:first-child{
+    border-radius: 10px 0 0 10px;
+}
+
+.table-classsrooms tr td:last-child{
+    border-radius: 0 10px 10px 0;
+}
+
+/* smartphone */ 
+@media (max-width: 431px){
+    .students-body {
+        width: 90%;
+        height: 100%;
+    }
+
+    .new-room-button{
+        width: 100px;
+        height: 58px;
+        padding: none;
+    }
+
+    .dashboards-container{
+        height: 80px;
+    }
+
+    .search-students-container{
+        gap: 10px;
+        height: 50px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .search-students-input{
+        font-size: 15px;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+    }
+
+    .icon-search-students {
+        font-size: 20px !important;
+    }
+
+    .button-search-students{
+        width: 100%;
+        height: 100%;
+        gap: 5px;    
+    }
+
+}
+
+@media (min-width: 431px) and (max-width: 765px){
+    .students-body {
+        width: 90%;
+        height: 100%;
+    }
+
+    .new-room-button{
+        width: 100px;
+        height: 58px;
+        padding: none;
+    }
+
+    .dashboards-container{
+        height: 80px;
+    }
+
+    .search-students-container{
+        gap: 10px;
+        height: 50px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .search-students-input{
+        font-size: 15px;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+    }
+
+    .icon-search-students {
+        font-size: 20px !important;
+    }
+
+    .button-search-students{
+        width: 100%;
+        height: 100%;
+        gap: 5px;    
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+    .students-body {
+        width: 90%;
+        height: 100%;
+    }
+    
+    .dashboards-container{
+        height: 170px;
+    }
+
+    .search-students-container{
+        gap: 30px;
+        height: 50px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .search-students-input{
+        font-size: 15px;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+    }
+
+    .icon-search-students {
+        font-size: 25px !important;
+    }
+
+    .button-search-students{
+        width: 25%;
+        height: 100%;
+        gap: 5px;    
+    }
+}
+
