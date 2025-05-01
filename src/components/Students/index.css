@@ -19,6 +19,7 @@ body {
     background-color: var(--blue-primary);
 }
 
+
 .students-container{
     height: 100vh;
     display: flex;
@@ -59,11 +60,22 @@ body {
     font-weight: 700;
 }
 
-.dashboards-container {
+.students-dashboards-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
     height: 200px;
+}
+
+.students-dashboard {
+    border-radius: 10px;
+    display: grid;
+    justify-content: space-between;
+    background-color: #fff;
+    gap: 30px;
+    padding: 30px 30px 30px 60px;
+    height: 100%;
+    width: 450px;
 }
 
 .search-students-container{
@@ -177,7 +189,7 @@ body {
         padding: none;
     }
 
-    .dashboards-container{
+    .students-dashboards-container{
         height: 80px;
     }
 
@@ -219,7 +231,7 @@ body {
         padding: none;
     }
 
-    .dashboards-container{
+    .students-dashboards-container{
         height: 80px;
     }
 
@@ -255,7 +267,7 @@ body {
         height: 100%;
     }
     
-    .dashboards-container{
+    .students-dashboards-container{
         height: 170px;
     }
 
