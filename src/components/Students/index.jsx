@@ -4,18 +4,16 @@ import './index.css';
 
 export default function Students() {
 
-
-
     return (
         <div className="students-container">
         <div className='students-body'>
             <div className='new-room-container'>
                 <button className='new-room-button' >Novo aluno</button>
             </div>
-            <div className='dashboards-container'>
-                <Dashboard studentsQuantityLabelText="Número de alunos" studentsQuantity="123" />
-                <Dashboard studentsQuantityLabelText="Alunos em recuperação" studentsQuantity="456" />
-                <Dashboard studentsQuantityLabelText="Alunos alfabetizados" studentsQuantity="789" />
+            <div className='students-dashboards-container'>
+                <Dashboard studentsQuantityLabelText="Sala" studentsQuantity="4°G" dashboardClassname="students-dashboard"/>
+                <Dashboard studentsQuantityLabelText="Quantidade de alunos" studentsQuantity="30" dashboardClassname="students-dashboard"/>
+                <Dashboard studentsQuantityLabelText="Alunos em recuperação" studentsQuantity="6" dashboardClassname="students-dashboard"/>
             </div>
             <div className='search-students-container'>
                 <input type='text' placeholder='Busque um aluno' className='search-students-input' />
