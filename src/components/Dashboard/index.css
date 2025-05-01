@@ -9,11 +9,11 @@
     width: 450px;
 }
 
-.dashboard .students-quantity-label{
+.dashboard .quantity-label{
     font-weight: 500;
 }
 
-.dashboard .students-quantity{
+.dashboard .quantity{
     font-size: 50px;
 }
 
