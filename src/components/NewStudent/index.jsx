@@ -43,7 +43,6 @@ export default function NewStudent(){
         }
         const response = await createStudent(studentData, token);
         if(response.status >= 400 && response.status <= 499) {
-            console.log(response.data)
             
             toast.error(messageFromErrorCode(response.data.errorCode), {
                 position: "top-right",
