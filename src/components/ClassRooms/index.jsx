@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Dashboard from '../Dashboard';
 import './index.css';
-import SearchIcon from '@mui/icons-material/Search';
 import api from "../../services/api";
 import useToken from '../../hooks/useToken';
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 export default function ClassRooms(){
     const navigate = useNavigate();
     const [classrooms, setClassrooms] = useState([]);
+    const [searchPattern, setSearchPattern] = useState('');
     const {token} = useToken();
 
     const handleRedirectToNewClassroom = () => {
@@ -47,8 +47,7 @@ export default function ClassRooms(){
                 <Dashboard studentsQuantityLabelText="Alunos alfabetizados" studentsQuantity="789" />
             </div>
             <div className='search-classroom-container'>
-                <input type='text' placeholder='Busque uma sala' className='search-classrooms-input' />
-                <button className='button-search-classrooms'> <SearchIcon  className='icon-search-classrooms'/> <p className='label-search-classrooms'>Buscar</p> </button>
+                <input type='text' placeholder='Busque uma sala' className='search-classrooms-input' onChange={e => setSearchPattern(e.target.value)}/>
             </div>
             <table className='table-classsrooms' cellSpacing={"0"}>
                 <thead>
@@ -60,14 +59,25 @@ export default function ClassRooms(){
                     </tr>
                 </thead>
                 <tbody>
-                    {classrooms.map(classroom => (
+                    {
+                    searchPattern !== '' ? 
+                    classrooms.filter(classroom => classroom.classroomName.startsWith(searchPattern)).map(classroom => (
+                        <tr className='classroom-tr' onClick={() => handleRedirectToClassroom(classroom.classroomId)} key={classroom.classroomName}>
+                            <td>{classroom.classroomName}</td>
+                            <td>{classroom.teacher}</td>
+                            <td>{extractShift(classroom.shift)}</td>
+                            <td>{classroom.classNumber}</td>
+                        </tr>)
+                    )
+                        : classrooms.map(classroom => (
                         <tr className='classroom-tr' onClick={() => handleRedirectToClassroom(classroom.classroomId)} key={classroom.classroomName}>
                             <td>{classroom.classroomName}</td>
                             <td>{classroom.teacher}</td>
                             <td>{extractShift(classroom.shift)}</td>
                             <td>{classroom.classNumber}</td>
                         </tr>
-                    ))}
+                    ))
+                    }
                 </tbody>
             </table>
         </div>
