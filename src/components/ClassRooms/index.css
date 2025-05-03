@@ -164,6 +164,12 @@ body {
     border-radius: 0 10px 10px 0;
 }
 
+/* adicionar dalay para quando o mouse passar em cima (purpurina) */
+/* TODO: add delay when mouse over, change the color little by little */
+.classroom-tr {
+    cursor: pointer;
+    
+}
 /* smartphone */ 
 @media (max-width: 431px){
     .classroom-body {
