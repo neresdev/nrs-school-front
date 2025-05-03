@@ -23,7 +23,6 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
     padding-top: 5%;
     background-size: cover;
     background-color: var(--blue-primary);
@@ -81,7 +80,7 @@ body {
 }
 
 .search-classrooms-input{
-    width: 85%;
+    width: 100%;
     border: none;
     height: 100%;
     font-size: 25px;
@@ -90,22 +89,6 @@ body {
     background-color: var(--white-primary);
     border-radius: 10px;
     
-}
-
-
-.button-search-classrooms{  
-    width: 13%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border: none;
-    border-left: 2px solid var(--green-secondary);
-    border-right: 2px solid var(--green-secondary);
-    border-radius: 10px;
-    background-color: none;
-    background-color: var(--blue-primary);
-    cursor: pointer;
 }   
 
 
