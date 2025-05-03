@@ -1,7 +1,7 @@
 import Dashboard from "../Dashboard";
 import SearchIcon from '@mui/icons-material/Search';
 import './index.css';
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useToken from "../../hooks/useToken";
 import api from "../../services/api";
 import { useEffect, useState } from "react";
@@ -13,6 +13,7 @@ export default function Students() {
     const [classroomData, setClassroomData] = useState();
     const {token} = useToken();
     const classroomId = queryParams.get('id')
+    const navigate = useNavigate();
 
     useEffect(() => {
         api.get(`/students/${classroomId}`, {
@@ -47,7 +48,7 @@ export default function Students() {
         <div className="students-container">
         <div className='students-body'>
             <div className='new-room-container'>
-                <button className='new-room-button' >Novo aluno</button>
+                <button className='new-student-button' >Novo aluno</button>
             </div>
             <div className='students-dashboards-container'>
                 <Dashboard studentsQuantityLabelText="Sala" studentsQuantity={classroomData?.classroomName} dashboardClassname="students-dashboard"/>
