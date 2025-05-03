@@ -47,7 +47,7 @@ body {
     justify-content: flex-end;
 }
 
-.new-room-button{
+.new-student-button{
     width: 146px;
     height: 58px;
     background: var(--green-primary);
@@ -183,7 +183,7 @@ body {
         height: 100%;
     }
 
-    .new-room-button{
+    .new-student-button{
         width: 100px;
         height: 58px;
         padding: none;
@@ -225,7 +225,7 @@ body {
         height: 100%;
     }
 
-    .new-room-button{
+    .new-student-button{
         width: 100px;
         height: 58px;
         padding: none;
