@@ -15,6 +15,10 @@ export default function ClassRooms(){
         navigate('/new-classroom');
     }
 
+    const handleRedirectToClassroom = classroomId => {
+        navigate(`/classroom-students?id=${classroomId}`);
+    }
+
     useEffect(() => {
         api
           .get("/classrooms", {
@@ -56,12 +60,12 @@ export default function ClassRooms(){
                     </tr>
                 </thead>
                 <tbody>
-                    {classrooms.map(classrom => (
-                        <tr key={classrom.classroomName}>
-                            <td>{classrom.classroomName}</td>
-                            <td>{classrom.teacher}</td>
-                            <td>{extractShift(classrom.shift)}</td>
-                            <td>{classrom.classNumber}</td>
+                    {classrooms.map(classroom => (
+                        <tr className='classroom-tr' onClick={() => handleRedirectToClassroom(classroom.classroomId)} key={classroom.classroomName}>
+                            <td>{classroom.classroomName}</td>
+                            <td>{classroom.teacher}</td>
+                            <td>{extractShift(classroom.shift)}</td>
+                            <td>{classroom.classNumber}</td>
                         </tr>
                     ))}
                 </tbody>
