@@ -33,8 +33,8 @@ function App() {
         <Route path="/dashboard" element={<Header />} />
         <Route path="/new-classroom" element={<NewRoom />} />
         <Route path="/new-student" element={<NewStudent />} />
-        <Route path="/students" element={<Students />} />
-      </Routes>
+        <Route path="/classroom-students" element={<Students />} />
+      </Routes> 
   )
 }
 
