@@ -24,7 +24,7 @@ export default function Students() {
             })
             .then((response) => {
                 setStudents(response.data);
-        })
+            })
             .catch((err) => {
                 console.error("ops! ocorreu um erro" + err);
             });
@@ -32,7 +32,6 @@ export default function Students() {
         api.get(`/classrooms/${classroomId}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
-                
             }
             })
             .then((response) => {
