@@ -15,6 +15,9 @@ export default function Students() {
     const classroomId = queryParams.get('id')
     const navigate = useNavigate();
 
+    const handleRedirectToStudent = registration => {
+        navigate(`/student/${registration}`)
+    }
     useEffect(() => {
         api.get(`/students/${classroomId}`, {
             headers: {
