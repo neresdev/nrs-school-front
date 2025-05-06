@@ -9,14 +9,14 @@ import { useEffect, useState } from "react";
 export default function Students() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
+    const classroomId = queryParams.get('id');
     const [students, setStudents] = useState([]);
     const [classroomData, setClassroomData] = useState();
     const {token} = useToken();
-    const classroomId = queryParams.get('id')
     const navigate = useNavigate();
 
     const handleRedirectToStudent = registration => {
-        navigate(`/student/${registration}`)
+        navigate(`/student?registration=${registration}`)
     }
     useEffect(() => {
         api.get(`/students/${classroomId}`, {
@@ -71,7 +71,7 @@ export default function Students() {
                 </thead>
                 <tbody>
                     {students.map(student => (
-                        <tr key={student.registration}>
+                        <tr key={student.registration} onClick={() => handleRedirectToStudent(student.registration)}>
                             <td>{student.studentName}</td>
                             <td>{student.registration}</td>
                             <td>{student.studentEmail}</td>
