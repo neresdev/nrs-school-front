@@ -8,6 +8,7 @@ import NewStudent from "./components/NewStudent";
 import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Students from "./components/Students";
+import Student from "./components/Student";
 
 const SESSION_EXPIRED_MESSAGE = "Sua sessão expirou. Faça login novamente.";
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/new-classroom" element={<NewRoom />} />
         <Route path="/new-student" element={<NewStudent />} />
         <Route path="/classroom-students" element={<Students />} />
+        <Route path="/student" element={<Student />} />
       </Routes> 
   )
 }
@@ -47,20 +49,20 @@ function isJwtInvalid(token){
     const payloadBase64 = token.split('.')[1];
     const decodedPayload = JSON.parse(atob(payloadBase64));
     
-    const currentTime = Math.floor(Date.now() / 1000); // segundos
+    const currentTime = Math.floor(Date.now() / 1000);
     
     if (decodedPayload.exp) {
         return decodedPayload.exp < currentTime;
     }
 
     if (decodedPayload.iat) {
-      const expirationTime = decodedPayload.iat + 3600; // 1 hora
+      const expirationTime = decodedPayload.iat + 3600;
       return expirationTime < currentTime;
     }
 
     return true;
   } catch (e) {
-    console.error('Erro ao verificar expiração do token:', e);
+    console.error('Error when check token expiration:', e);
     return true;
   }
 }
