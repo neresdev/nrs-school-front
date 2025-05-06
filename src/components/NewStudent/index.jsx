@@ -4,16 +4,8 @@ import api from '../../services/api';
 import useToken from '../../hooks/useToken';
 import { toast, ToastContainer } from 'react-toastify';
 import { messageFromErrorCode } from '../../utils/apiUtils';
+import { generateRegistration } from '../../utils/studentUtils';
 
-const generateRegistration = () => {
-    const letters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
-    for (let i = 0; i < 7; i++) {
-      const index = Math.floor(Math.random() * letters.length);
-      result += letters[index];
-    }
-    return result;
-  }
 
 async function createStudent(data, token){
     let response = await api.post('/student/create', data,  {
