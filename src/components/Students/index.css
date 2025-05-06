@@ -166,6 +166,7 @@ body {
     height: 69px;
     border-collapse: inherit;
     text-align: center;
+    cursor: pointer;
 }
 
 .table-classsrooms tr td:first-child{
