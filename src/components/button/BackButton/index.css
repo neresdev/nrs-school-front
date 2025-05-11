@@ -1,0 +1,20 @@
+.back-button{
+    width: 146px;
+    height: 58px;
+    background: var(--green-primary);
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--white-primary);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.custom-arrow-icon {
+    fill: white !important;    
+}
