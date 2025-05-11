@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { messageFromErrorCode } from '../../utils/apiUtils';
 import EditIcon from '@mui/icons-material/Edit';
 import { useLocation } from "react-router-dom";
+import BackButton from '../button/BackButton';
 
 async function updateStudent(data, token){
     let response = await api.put('/student/update', data,  {
@@ -31,8 +32,8 @@ export default function Student(){
     const {token} = useToken();
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
-    const studentUrlRegistration = queryParams.get('registration');    
-
+    const studentUrlRegistration = queryParams.get('registration'); 
+    const classroomId = queryParams.get('classroomId');
 
     useEffect(() => {
             api
@@ -125,6 +126,10 @@ export default function Student(){
             { isUpdateStudentError != null && <ToastContainer />}
             <div className="student-container">
                 <div className='student-body'>
+                    <div className='student-backbooton-container'>
+                        <BackButton path={`/classroom-students?id=${classroomId}`} />
+                    </div>
+                    
                     <h1>Estudante: {registration}</h1>
                     <div className='student-line-container'>
                         <div className='student-line blue'>
