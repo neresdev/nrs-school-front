@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useToken from "../../hooks/useToken";
 import api from "../../services/api";
 import { useEffect, useState } from "react";
+import BackButton from "../button/BackButton";
 
 export default function Students() {
     const location = useLocation();
@@ -16,7 +17,7 @@ export default function Students() {
     const navigate = useNavigate();
 
     const handleRedirectToStudent = registration => {
-        navigate(`/student?registration=${registration}`)
+        navigate(`/student?registration=${registration}&classroomId=${classroomId}`);
     }
     useEffect(() => {
         api.get(`/students/${classroomId}`, {
@@ -50,6 +51,7 @@ export default function Students() {
         <div className="students-container">
         <div className='students-body'>
             <div className='new-room-container'>
+                <BackButton path="/classrooms" />
                 <button className='new-student-button' >Novo aluno</button>
             </div>
             <div className='students-dashboards-container'>
