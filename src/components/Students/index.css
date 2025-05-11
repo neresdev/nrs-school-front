@@ -21,7 +21,6 @@ body {
 
 
 .students-container{
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,10 +43,10 @@ body {
 .new-room-container{
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
-.new-student-button{
+.new-student-button {
     width: 146px;
     height: 58px;
     background: var(--green-primary);
@@ -58,7 +57,13 @@ body {
     font-size: 16px;
     color: var(--white-primary);
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
+
+
 
 .students-dashboards-container {
     width: 100%;
@@ -184,7 +189,7 @@ body {
         height: 100%;
     }
 
-    .new-student-button{
+    .new-student-button, .back-button{
         width: 100px;
         height: 58px;
         padding: none;
@@ -226,7 +231,7 @@ body {
         height: 100%;
     }
 
-    .new-student-button{
+    .new-student-button, .back-button{
         width: 100px;
         height: 58px;
         padding: none;
