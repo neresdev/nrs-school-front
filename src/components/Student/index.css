@@ -24,6 +24,20 @@
     font-size: 4em;
 }
 
+.student-body .student-backbooton-container {
+   width: 100%;
+   padding-left: 5%;
+}
+
+.student-header {
+    display: grid;
+    width: 100%;
+    padding: 3%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
 .student-line-container {
     width: 100%;
     height: 50%;
