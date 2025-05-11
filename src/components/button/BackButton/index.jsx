@@ -1,6 +1,7 @@
-import CustomArrowIcon from "../../icons/CustomArrowIcon";
+
 import './index.css';
 import { useNavigate } from "react-router-dom";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PropTypes from 'prop-types';
 
 export default function BackButton({path}) {
@@ -12,7 +13,7 @@ export default function BackButton({path}) {
     return <button 
                 className='back-button'
                 onClick={() => handleRedirect(path)}
-            > <CustomArrowIcon /> Voltar</button>
+            > <ArrowBackIcon className="custom-arrow-icon"  /> Voltar</button>
 }
 
 
