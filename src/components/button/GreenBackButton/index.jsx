@@ -11,9 +11,9 @@ export default function BackButton({path}) {
     }
 
     return <button 
-                className='back-button'
-                onClick={() => handleRedirect(path)}
-            > <ArrowBackIcon className="custom-arrow-icon"  /> Voltar</button>
+            onClick={() => handleRedirect(path)}
+            className='back-button'>
+            <ArrowBackIcon className="custom-arrow-icon"  />Voltar</button>
 }
 
 

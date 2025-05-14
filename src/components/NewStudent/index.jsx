@@ -5,7 +5,7 @@ import useToken from '../../hooks/useToken';
 import { toast, ToastContainer } from 'react-toastify';
 import { messageFromErrorCode } from '../../utils/apiUtils';
 import { generateRegistration } from '../../utils/studentUtils';
-
+import GreenButton from "../button/GreenButton";
 
 async function createStudent(data, token){
     let response = await api.post('/student/create', data,  {
@@ -65,7 +65,7 @@ export default function NewStudent(){
                             <label className='newstudent-label'> <p> Classe </p> <input onChange={e => setClassroomName(e.target.value)} /> </label>    
                         </div>
                         <div className='register-student-container'>
-                            <button className='register-student-button'>Cadastrar Sala</button>
+                            <GreenButton text='Cadastrar Estudante'/>
                         </div>
                     </div>
                     

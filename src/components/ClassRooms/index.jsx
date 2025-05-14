@@ -4,6 +4,8 @@ import './index.css';
 import api from "../../services/api";
 import useToken from '../../hooks/useToken';
 import { useNavigate } from 'react-router-dom';
+import GreenButton from "../button/GreenButton";
+
 
 export default function ClassRooms(){
     const navigate = useNavigate();
@@ -39,7 +41,7 @@ export default function ClassRooms(){
        <div className="classroom-container">
         <div className='classroom-body'>
             <div className='new-room-container'>
-                <button className='new-room-button' onClick={handleRedirectToNewClassroom}>Cadastrar Sala</button>
+                <GreenButton onClick={handleRedirectToNewClassroom} text="Cadastrar Sala" />
             </div>
             <div className='dashboards-container'>
                 <Dashboard studentsQuantityLabelText="Número de alunos" studentsQuantity="123" />

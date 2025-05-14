@@ -7,7 +7,7 @@ import NewRoom from "./components/NewRoom";
 import NewStudent from "./components/NewStudent";
 import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import Students from "./components/Students";
+import ClassroomStudents from "./components/ClassroomStudents";
 import Student from "./components/Student";
 
 const SESSION_EXPIRED_MESSAGE = "Sua sessão expirou. Faça login novamente.";
@@ -34,7 +34,7 @@ function App() {
         <Route path="/dashboard" element={<Header />} />
         <Route path="/new-classroom" element={<NewRoom />} />
         <Route path="/new-student" element={<NewStudent />} />
-        <Route path="/classroom-students" element={<Students />} />
+        <Route path="/classroom-students" element={<ClassroomStudents />} />
         <Route path="/student" element={<Student />} />
       </Routes> 
   )

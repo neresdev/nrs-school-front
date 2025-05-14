@@ -6,7 +6,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import { messageFromErrorCode } from '../../utils/apiUtils';
 import EditIcon from '@mui/icons-material/Edit';
 import { useLocation } from "react-router-dom";
-import BackButton from '../button/BackButton';
+import BackButton from '../button/GreenBackButton';
+import GreenButton from '../button/GreenButton';
 
 async function updateStudent(data, token){
     let response = await api.put('/student/update', data,  {
@@ -174,7 +175,7 @@ export default function Student(){
                             </label>    
                         </div>
                         <div className='register-student-container'>
-                            <button className='register-student-button'>Atualizar dados</button>
+                            <GreenButton text='Atualizar dados' />
                         </div>
                     </div>
                     

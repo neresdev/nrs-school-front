@@ -5,9 +5,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useToken from "../../hooks/useToken";
 import api from "../../services/api";
 import { useEffect, useState } from "react";
-import BackButton from "../button/BackButton";
+import BackButton from "../button/GreenBackButton";
+import GreenButton from "../button/GreenButton";
 
-export default function Students() {
+export default function ClassroomStudents() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const classroomId = queryParams.get('id');
@@ -16,9 +17,6 @@ export default function Students() {
     const {token} = useToken();
     const navigate = useNavigate();
 
-    const handleRedirectToStudent = registration => {
-        navigate(`/student?registration=${registration}&classroomId=${classroomId}`);
-    }
     useEffect(() => {
         api.get(`/students/${classroomId}`, {
             headers: {
@@ -52,12 +50,12 @@ export default function Students() {
         <div className='students-body'>
             <div className='new-room-container'>
                 <BackButton path="/classrooms" />
-                <button className='new-student-button' >Novo aluno</button>
+                <GreenButton text="Novo aluno" onClick={() => navigate('/new-student')}/>
             </div>
             <div className='students-dashboards-container'>
-                <Dashboard studentsQuantityLabelText="Sala" studentsQuantity={classroomData?.classroomName} dashboardClassname="students-dashboard"/>
-                <Dashboard studentsQuantityLabelText="Quantidade de alunos" studentsQuantity={students.length} dashboardClassname="students-dashboard"/>
-                <Dashboard studentsQuantityLabelText="Alunos em recuperação" studentsQuantity="6" dashboardClassname="students-dashboard"/>
+                <Dashboard labelText="Sala" labelValue={classroomData != undefined ? classroomData?.classroomName : ""} dashboardClassname="students-dashboard"/>
+                <Dashboard labelText="Quantidade de alunos" labelValue={(students != null ? students.length : 0).toString()} dashboardClassname="students-dashboard"/>
+                <Dashboard labelText="Alunos em recuperação" labelValue={(6).toString()} dashboardClassname="students-dashboard"/>
             </div>
             <div className='search-students-container'>
                 <input type='text' placeholder='Busque um aluno' className='search-students-input' />
@@ -73,7 +71,7 @@ export default function Students() {
                 </thead>
                 <tbody>
                     {students.map(student => (
-                        <tr key={student.registration} onClick={() => handleRedirectToStudent(student.registration)}>
+                        <tr key={student.registration} onClick={() => navigate(`/student?registration=${student.registration}&classroomId=${classroomId}`)}>
                             <td>{student.studentName}</td>
                             <td>{student.registration}</td>
                             <td>{student.studentEmail}</td>

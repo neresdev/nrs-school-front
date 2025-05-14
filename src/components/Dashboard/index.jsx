@@ -1,17 +1,17 @@
 import './index.css'
 import PropTypes from 'prop-types';
 
-export default function Dashboard({studentsQuantityLabelText, studentsQuantity, dashboardClassname}){
+export default function Dashboard({labelText, labelValue, dashboardClassname}){
     return (
         <div className={dashboardClassname != null ? dashboardClassname : 'dashboard'}>
-            <h2 className='quantity-label'>{studentsQuantityLabelText}</h2>
-            <h1 className='quantity'>{studentsQuantity}</h1>
+            <h2 className='quantity-label'>{labelText}</h2>
+            <h1 className='quantity'>{labelValue}</h1>
         </div>  
     )
 }
 
 Dashboard.propTypes = {
-    studentsQuantityLabelText: PropTypes.string.isRequired,
-    studentsQuantity: PropTypes.string.isRequired,
+    labelText: PropTypes.string.isRequired,
+    labelValue: PropTypes.string.isRequired,
     dashboardClassname: PropTypes.string.isRequired
   }
