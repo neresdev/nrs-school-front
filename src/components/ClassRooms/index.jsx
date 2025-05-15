@@ -44,9 +44,9 @@ export default function ClassRooms(){
                 <GreenButton onClick={handleRedirectToNewClassroom} text="Cadastrar Sala" />
             </div>
             <div className='dashboards-container'>
-                <Dashboard studentsQuantityLabelText="Número de alunos" studentsQuantity="123" />
-                <Dashboard studentsQuantityLabelText="Alunos em recuperação" studentsQuantity="456" />
-                <Dashboard studentsQuantityLabelText="Alunos alfabetizados" studentsQuantity="789" />
+                <Dashboard labelText="Número de alunos" labelValue="123" />
+                <Dashboard labelText="Alunos em recuperação" labelValue="456" />
+                <Dashboard labelText="Alunos alfabetizados" labelValue="789" />
             </div>
             <div className='search-classroom-container'>
                 <input type='text' placeholder='Busque uma sala' className='search-classrooms-input' onChange={e => setSearchPattern(e.target.value)}/>
