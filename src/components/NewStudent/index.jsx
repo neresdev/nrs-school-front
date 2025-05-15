@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './index.css'
 import api from '../../services/api';
 import useToken from '../../hooks/useToken';
@@ -20,6 +20,7 @@ export default function NewStudent(){
     const [studentName, setStudentName] = useState();
     const [studentEmail, setStudentEmail] = useState();
     const [classroomName, setClassroomName] = useState();
+    const [classrooms, setClassrooms] = useState([]);
     const [isCreateStudentError, setIsCreateStudentError] = useState(null);
     const {token} = useToken();
 
@@ -46,8 +47,18 @@ export default function NewStudent(){
         toast.success('Estudante cadastrado com sucesso!', {
             position: "top-right",
             autoClose: 5000,
-        });        
+        });    
+        
     }
+    useEffect(() => {
+        api
+            .get("/classrooms", {
+                    headers: {
+                        'Authorization': `Bearer ${token}`   
+                    }})
+                    .then((response) => setClassrooms(response.data))
+                    .catch((err) => console.error("ops! ocorreu um erro" + err));
+    }, [token]);
     
     return (
         <form onSubmit={handleCreateStudent}>
@@ -62,7 +73,22 @@ export default function NewStudent(){
                         </div>
                         <div className='newroom-line red'>
                             <label className='newstudent-label'> <p>Email(a)</p> <input type="email" onChange={e => setStudentEmail(e.target.value)}/> </label>                    
-                            <label className='newstudent-label'> <p> Classe </p> <input onChange={e => setClassroomName(e.target.value)} /> </label>    
+                            <label className='newstudent-label'> <p> Classe </p>
+                            <select
+                                    onChange={e => setClassroomName(e.target.value)} 
+                                    value={classroomName}
+                                >
+                                    {
+                                    classrooms.map(classroom => (
+                                        <option 
+                                            key={classroom.classroomId}
+                                            value={classroom.classroomName}
+                                        >
+                                                {classroom.classroomName}
+                                        </option>
+                                    ))}
+                                </select>
+                            </label>    
                         </div>
                         <div className='register-student-container'>
                             <GreenButton text='Cadastrar Estudante'/>
