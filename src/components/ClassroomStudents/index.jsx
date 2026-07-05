@@ -18,14 +18,14 @@ export default function ClassroomStudents() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        api.get(`/students/${classroomId}`, {
+        api.get(`/students/classroom/${classroomId}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
                 
             }
             })
             .then((response) => {
-                setStudents(response.data);
+                setStudents(response.data.students);
             })
             .catch((err) => {
                 console.error("ops! ocorreu um erro" + err);

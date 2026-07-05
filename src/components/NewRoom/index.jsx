@@ -2,18 +2,20 @@ import { useState } from 'react'
 import './index.css'
 import api from '../../services/api';
 import useToken from '../../hooks/useToken';
+import { toast, ToastContainer } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 async function createClassroom(data, token){
-        
-    api.post('/create/classroom', data,  {
+    return api.post('/classrooms/create', data,  {
         headers: {
             'Authorization': `Bearer ${token}`
         },
-    })
+    }).then(res => res).catch(err => err.response);
 }
 
 export default function NewRoom(){
     const {token} = useToken();
+    const navigate = useNavigate();
     const[classroomName, setClassroomName] = useState();
     const[teacher, setTeacher] = useState();
     const[shift, setShift] = useState();
@@ -24,7 +26,7 @@ export default function NewRoom(){
         e.preventDefault();
         
         if(parseInt(shift) !== 1 && parseInt(shift) !== 2 && parseInt(shift) !== 3 ) {
-            alert('Invalid shift!')
+            toast.error('Turno inválido!');
             return;
         }
 
@@ -35,11 +37,18 @@ export default function NewRoom(){
             classNumber,
             capacity
         }
-        await createClassroom(classroomData, token)
+        const response = await createClassroom(classroomData, token);
+        if (response.status >= 200 && response.status <= 299) {
+            toast.success('Sala cadastrada com sucesso!');
+            navigate('/classrooms');
+        } else {
+            toast.error('Erro ao cadastrar sala.');
+        }
     }
 
     return (
         <div className="newroom-container">
+            <ToastContainer />
             <div className='newroom-body'>
                 <h1>Cadastrar Sala</h1>
                 <div className='newroom-line-container'>

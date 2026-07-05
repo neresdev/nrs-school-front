@@ -8,7 +8,7 @@ import { generateRegistration } from '../../utils/studentUtils';
 import GreenButton from "../button/GreenButton";
 
 async function createStudent(data, token){
-    let response = await api.post('/student/create', data,  {
+    let response = await api.post('/students', data,  {
         headers: {
             'Authorization': `Bearer ${token}`
         },
@@ -56,7 +56,7 @@ export default function NewStudent(){
                     headers: {
                         'Authorization': `Bearer ${token}`   
                     }})
-                    .then((response) => setClassrooms(response.data))
+                    .then((response) => setClassrooms(response.data.classrooms))
                     .catch((err) => console.error("ops! ocorreu um erro" + err));
     }, [token]);
     

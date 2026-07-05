@@ -30,7 +30,7 @@ export default function ClassRooms(){
             }
           })
           .then((response) => {
-            setClassrooms(response.data);
+            setClassrooms(response.data.classrooms);
         })
           .catch((err) => {
             console.error("ops! ocorreu um erro" + err);

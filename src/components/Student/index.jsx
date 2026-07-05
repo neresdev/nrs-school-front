@@ -10,7 +10,7 @@ import BackButton from '../button/GreenBackButton';
 import GreenButton from '../button/GreenButton';
 
 async function updateStudent(data, token){
-    let response = await api.put('/student/update', data,  {
+    let response = await api.put('/students', data,  {
         headers: {
             'Authorization': `Bearer ${token}`
         },
@@ -38,7 +38,7 @@ export default function Student(){
 
     useEffect(() => {
             api
-              .get(`/student/${studentUrlRegistration}`, {
+               .get(`/students/${studentUrlRegistration}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                     
@@ -63,7 +63,7 @@ export default function Student(){
                           }
                         })
                         .then((response) => {
-                          setClassrooms(response.data);
+                          setClassrooms(response.data.classrooms);
                       })
                         .catch((err) => {
                           console.error("ops! ocorreu um erro" + err);
