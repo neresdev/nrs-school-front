@@ -25,3 +25,6 @@ dist-ssr
 
 # ai
 .claude/*
+
+# env
+.env
