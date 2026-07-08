@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 async function loginUser(credentials) {  
-  let token = fetch('http://localhost:8081/auth/login', {
+  let token = fetch(`${import.meta.env.VITE_API_HOST}/auth/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
