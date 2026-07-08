@@ -41,7 +41,7 @@ export default function Login({ setToken }) {
       <form onSubmit={handleSubmit}> 
         <div className='login-container'>
             <div className='container-header'>
-              <h1>Bem vindo(a) !</h1>
+              <h1>Bem vindo(a)!</h1>
             </div>
             <div className='container-body'>
               <div className='input-container'>
