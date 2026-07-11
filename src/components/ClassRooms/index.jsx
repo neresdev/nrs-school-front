@@ -64,15 +64,15 @@ export default function ClassRooms(){
                     {
                     searchPattern !== '' ? 
                     classrooms.filter(classroom => classroom.classroomName.startsWith(searchPattern)).map(classroom => (
-                        <tr className='classroom-tr' onClick={() => handleRedirectToClassroom(classroom.classroomId)} key={classroom.classroomName}>
+                        <tr className='classroom-tr' onClick={() => handleRedirectToClassroom(classroom.classroomReferenceCode)} key={classroom.classroomName}>
                             <td>{classroom.classroomName}</td>
                             <td>{classroom.teacher}</td>
                             <td>{extractShift(classroom.shift)}</td>
                             <td>{classroom.classNumber}</td>
                         </tr>)
-                    )
+                    
                         : classrooms.map(classroom => (
-                        <tr className='classroom-tr' onClick={() => handleRedirectToClassroom(classroom.classroomId)} key={classroom.classroomName}>
+                        <tr className='classroom-tr' onClick={() => handleRedirectToClassroom(classroom.classroomReferenceCode)} key={classroom.classroomName}>
                             <td>{classroom.classroomName}</td>
                             <td>{classroom.teacher}</td>
                             <td>{extractShift(classroom.shift)}</td>

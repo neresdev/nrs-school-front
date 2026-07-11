@@ -165,7 +165,7 @@ export default function Student(){
                                     {
                                     classrooms.map(classroom => (
                                         <option 
-                                            key={classroom.classroomId}
+                                            key={classroom.classroomReferenceCode}
                                             value={classroom.classroomName}
                                         >
                                                 {classroom.classroomName}
