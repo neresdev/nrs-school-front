@@ -18,7 +18,7 @@ export default function ClassroomStudents() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        api.get(`/students/classroom/${classroomId}`, {
+        api.get(`/classrooms/classroom-students/${classroomId}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
                 

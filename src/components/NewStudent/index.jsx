@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { messageFromErrorCode } from '../../utils/apiUtils';
 import { generateRegistration } from '../../utils/studentUtils';
 import GreenButton from "../button/GreenButton";
+import { useNavigate } from 'react-router-dom';
 
 async function createStudent(data, token){
     let response = await api.post('/students', data,  {
@@ -23,10 +24,20 @@ export default function NewStudent(){
     const [classrooms, setClassrooms] = useState([]);
     const [isCreateStudentError, setIsCreateStudentError] = useState(null);
     const {token} = useToken();
+    const navigate = useNavigate();
 
     
     const handleCreateStudent = async e => {
         e.preventDefault();
+
+        if (!classroomName) {
+            toast.error('Selecione uma sala de aula', {
+                position: "top-right",
+                autoClose: 5000,
+            });
+            return;
+        }
+
         const registration = generateRegistration();
         const studentData = {
             studentName,
@@ -47,8 +58,8 @@ export default function NewStudent(){
         toast.success('Estudante cadastrado com sucesso!', {
             position: "top-right",
             autoClose: 5000,
-        });    
-        
+        });
+        navigate('/classrooms');
     }
     useEffect(() => {
         api
@@ -56,7 +67,13 @@ export default function NewStudent(){
                     headers: {
                         'Authorization': `Bearer ${token}`   
                     }})
-                    .then((response) => setClassrooms(response.data.classrooms))
+                    .then((response) => {
+                        const data = response.data.classrooms;
+                        setClassrooms(data);
+                        if (data.length > 0) {
+                            setClassroomName(data[0].classroomName);
+                        }
+                    })
                     .catch((err) => console.error("ops! ocorreu um erro" + err));
     }, [token]);
     

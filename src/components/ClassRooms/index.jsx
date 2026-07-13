@@ -69,8 +69,7 @@ export default function ClassRooms(){
                             <td>{classroom.teacher}</td>
                             <td>{extractShift(classroom.shift)}</td>
                             <td>{classroom.classNumber}</td>
-                        </tr>)
-                    
+                        </tr>))
                         : classrooms.map(classroom => (
                         <tr className='classroom-tr' onClick={() => handleRedirectToClassroom(classroom.classroomReferenceCode)} key={classroom.classroomName}>
                             <td>{classroom.classroomName}</td>
