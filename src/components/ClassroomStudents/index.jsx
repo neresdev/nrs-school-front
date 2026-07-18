@@ -11,14 +11,14 @@ import GreenButton from "../button/GreenButton";
 export default function ClassroomStudents() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
-    const classroomId = queryParams.get('id');
+    const classroomReferenceCode = queryParams.get('id');
     const [students, setStudents] = useState([]);
     const [classroomData, setClassroomData] = useState();
     const {token} = useToken();
     const navigate = useNavigate();
 
     useEffect(() => {
-        api.get(`/classrooms/classroom-students/${classroomId}`, {
+        api.get(`/classrooms/classroom-students/${classroomReferenceCode}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
                 
@@ -31,7 +31,7 @@ export default function ClassroomStudents() {
                 console.error("ops! ocorreu um erro" + err);
             });
 
-        api.get(`/classrooms/${classroomId}`, {
+        api.get(`/classrooms/${classroomReferenceCode}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -43,7 +43,7 @@ export default function ClassroomStudents() {
             .catch((err) => {
                 console.error("ops! ocorreu um erro" + err);
             });
-        }, [token, classroomId]);
+        }, [token, classroomReferenceCode]);
 
     return (
         <div className="students-container">
@@ -71,14 +71,12 @@ export default function ClassroomStudents() {
                 </thead>
                 <tbody>
                     {students.map(student => (
-                        <tr key={student.registration} onClick={() => navigate(`/student?registration=${student.registration}&classroomId=${classroomId}`)}>
+                        <tr key={student.registration} onClick={() => navigate(`/student?registration=${student.registration}&classroomId=${classroomReferenceCode}`)}>
                             <td>{student.studentName}</td>
                             <td>{student.registration}</td>
                             <td>{student.studentEmail}</td>
                         </tr>
                     ))}
-                        
-                    
                 </tbody>
             </table>
         </div>
