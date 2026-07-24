@@ -4,6 +4,7 @@ import api from '../../services/api';
 import useToken from '../../hooks/useToken';
 import { toast, ToastContainer } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import BackButton from "../button/GreenBackButton";
 
 async function createClassroom(data, token){
     return api.post('/classrooms/create', data,  {
@@ -50,6 +51,9 @@ export default function NewRoom(){
         <div className="newroom-container">
             <ToastContainer />
             <div className='newroom-body'>
+                <div className='back-button-container'>
+                    <BackButton path="/classrooms" />
+                </div>
                 <h1>Cadastrar Sala</h1>
                 <div className='newroom-line-container'>
                     <div className='newrooom-line blue'>

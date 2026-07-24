@@ -17,6 +17,13 @@
     gap: 5%;
     align-items: center;
     border-radius: 50px;
+    position: relative;
+}
+
+.newroom-body .back-button-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 

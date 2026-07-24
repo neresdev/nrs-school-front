@@ -4,6 +4,8 @@ import { useState } from 'react'
 import "./index.css";
 import PersonIcon from '@mui/icons-material/Person';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import CircularProgress from '@mui/material/CircularProgress';
+import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,15 +26,22 @@ export default function Login({ setToken }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async e => {
     e.preventDefault();
+    if (!email.trim() || !password.trim()) {
+      toast.warning('Preencha todos os campos!');
+      return;
+    }
+    setLoading(true);
     const token = await loginUser({
       email,
       password
     })
     setToken(token);
-    navigate('/classrooms ');
+    setLoading(false);
+    navigate('/classrooms');
   }
   
   return (
@@ -61,7 +70,9 @@ export default function Login({ setToken }) {
                 />
               </div>
             </div>
-          <button>Entrar</button>
+          <button disabled={loading}>
+            {loading ? <CircularProgress size={24} sx={{ color: '#fff' }} /> : 'Entrar'}
+          </button>
         </div>
       </form>
       
